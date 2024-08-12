@@ -20,6 +20,14 @@ const Wordle = () => {
         ["<", "z", "x", "c", "v", "b", "n", "m", "enter"]
     ], []);
 
+    const CLASS_NAMES = {
+        ERROR: "error",
+        PRESSED: "pressed",
+        PASSED: "pass",
+        PLACED: "placed",
+        PRESENT: "present"
+    }
+
     const keyboardCharacters = KEYBOARD_LAYOUT.flat();
 
     const [wordle, setWordle] = useState("");
@@ -78,7 +86,7 @@ const Wordle = () => {
     const handleGuessedWord = () => {
         const guessedWord = currentGuess.join("");
         if (!WORD_LIST.includes(guessedWord)) {
-            setErrorClass("error");
+            setErrorClass(CLASS_NAMES.ERROR);
         } else {
             setGuessedWords([...guessedWords, guessedWord]);
         }
@@ -88,14 +96,14 @@ const Wordle = () => {
     const highlightSelectedKeys = () => {
         clearSelectedKeys();
         currentGuess.forEach(guess => {
-            document.querySelector(`[data-key="${guess}"]`).classList.add('pressed');
+            document.querySelector(`[data-key="${guess}"]`).classList.add(CLASS_NAMES.PRESSED);
         });
     }
 
 
     const clearSelectedKeys = () => {
         [...document.querySelectorAll("[data-key]")].forEach((key) => {
-            key.classList.remove("pressed");
+            key.classList.remove(CLASS_NAMES.PRESSED);
         });
     };
 
@@ -126,29 +134,30 @@ const Wordle = () => {
 
     useEffect(() => {
         if (guessedWords.length > 0) {
-            const results = [...Array(MAX_WORD_LENGTH).fill("pass")];
+
+            const results = [...Array(MAX_WORD_LENGTH).fill(CLASS_NAMES.PASSED)];
             const wordleLetters = wordle.split("");
             let availableLetters = [...wordleLetters];
 
             currentGuess.forEach((guess, index) => {
                 if (guess === wordleLetters[index]) {
-                    results[index] = "placed";
+                    results[index] = CLASS_NAMES.PLACED;
                     const idx = availableLetters.findIndex(letter => letter === guess);
                     availableLetters.splice(idx, 1)
                 }
             });
 
             currentGuess.forEach((guess, index) => {
-                if (results[index] !== "placed") {
+                if (results[index] !== CLASS_NAMES.PLACED) {
                     if (availableLetters.includes(guess)) {
-                        results[index] = "present";
+                        results[index] = CLASS_NAMES.PRESENT;
                         const idx = availableLetters.findIndex(letter => letter === guess);
                         availableLetters.splice(idx, 1);
                     }
                 }
             });
 
-            if (results.every(val => val === "placed")) {
+            if (results.every(val => val === CLASS_NAMES.PLACED)) {
                 setGameOver(true);
                 setStreak(streak + 1);
             }
@@ -229,13 +238,13 @@ const Wordle = () => {
                     return (
                         <div key={index} className="keyboard-row">
                             {row.map((letter) => {
-                                    const used = guessedLetters.includes(letter);
+                                    const guessed = guessedLetters.includes(letter);
                                     return (
                                         <button
                                             type={"button"}
                                             key={letter}
                                             data-key={letter}
-                                            className={`keyboard-letter ${used ? "used" : ""}`}
+                                            className={`keyboard-letter ${guessed ? "used" : ""}`}
                                             onClick={() => handleKeySelect(letter)}
                                         >{letter}</button>
                                     );
