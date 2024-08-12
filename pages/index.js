@@ -136,11 +136,9 @@ const Wordle = () => {
 
     useEffect(() => {
         if (guessedWords.length > 0) {
-
             const results = [...Array(MAX_WORD_LENGTH).fill(CLASS_NAMES.PASSED)];
             const wordleLetters = wordle.split("");
             let availableLetters = [...wordleLetters];
-
             let keyboardHighlights = [...correctLetters];
 
             currentGuess.forEach((guess, index) => {
@@ -181,11 +179,8 @@ const Wordle = () => {
             } else if (guessedWords.length >= MAX_GUESS_ATTEMPTS) {
                 setStreak(0);
             }
-
             setCorrectLetters(keyboardHighlights);
-
             setStats([...stats, results]);
-
         } else {
             setStats([]);
         }
@@ -206,8 +201,6 @@ const Wordle = () => {
         }
     }, [remainingGuesses]);
 
-
-    console.log(correctLetters);
 
     return (
         <div id="wordle">
