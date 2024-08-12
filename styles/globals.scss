@@ -1,8 +1,6 @@
-
-input, button, link {
-    &:focus {
-        outline: 3px solid #E89A5A;
-    }
+*:focus {
+    outline: 3px solid #E89A5A;
+    outline-offset: 3px;
 }
 
 #wordle {
