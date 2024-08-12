@@ -1,8 +1,10 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"],
-      "@config/*": ["src/config/*"]
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./*"],
+            "@styles/*": ["styles/*"],
+            "@config/*": ["src/config/*"],
+            "@storage/*": ["src/storage/*"]
+        }
     }
-  }
 }
