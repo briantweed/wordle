@@ -1,6 +1,8 @@
-*:focus {
-    outline: 3px solid #E89A5A;
-    outline-offset: 3px;
+@media only screen and (min-width: 768px) {
+    *:focus {
+        outline: 3px solid #E89A5A;
+        outline-offset: 3px;
+    }
 }
 
 .roboto-thin {
