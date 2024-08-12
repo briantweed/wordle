@@ -79,7 +79,6 @@
     position: relative;
     background: white;
     margin: auto;
-    min-height: 100vh;
     padding: 0.5rem;
 
     @media only screen and (min-width: 768px) {
@@ -167,9 +166,13 @@
                 align-items: center;
                 border: 1px solid #666;
                 border-radius: 6px;
-                margin: 0.5rem 0.25rem;
+                margin: 0.25rem 0.125rem;
                 text-transform: uppercase;
                 background: white;
+
+                @media only screen and (min-width: 768px) {
+                    margin: 0.5rem 0.25rem;
+                }
 
                 &.pass {
                     background: #cccccc;
