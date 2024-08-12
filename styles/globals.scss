@@ -78,13 +78,17 @@
 #wordle {
     position: relative;
     background: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 650px;
     margin: auto;
     min-height: 100vh;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 650px;
+        padding: 0.75rem 1rem;
+    }
 
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -96,9 +100,14 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin: 0 0 0.75rem;
-        padding-bottom: 0.75rem;
+        margin: 0 0 2rem;
+        padding-bottom: 1.5rem;
         border-bottom: 1px solid #aaa;
+
+        @media only screen and (min-width: 768px) {
+            margin: 0 0 0.75rem;
+            padding-bottom: 0.75rem;
+        }
 
         .reset {
             border-radius: 100px;
@@ -182,11 +191,16 @@
 
     .keyboard {
         border-top: 1px solid #aaa;
-        margin-top: 0.75rem;
-        padding: 1rem;
+        margin-top: 2rem;
+        padding: 2rem 0 0;
         width: 100%;
         user-select: none;
         background: #fdfdfd;
+
+        @media only screen and (min-width: 768px) {
+            padding: 1rem;
+            margin-top: 0.75rem;
+        }
 
         &-row {
             display: flex;
@@ -228,13 +242,13 @@
 
         &-letter {
             cursor: pointer;
-            width: 50px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             font-size: 14px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid #1d5d90;
+            border: 1px solid #345774;
             color: #345774;
             border-radius: 6px;
             margin: 0.25rem;
@@ -243,8 +257,12 @@
             background: white;
             transition: 0.3s color ease-in-out, 0.3s background-color ease-in-out, 0.2s background-position ease-in-out, 0.3s border-color ease-in-out, 0.3s background-image ease-in-out;
 
+            @media only screen and (min-width: 768px) {
+                height: 45px;
+            }
+
             &:hover {
-                border: 1px solid #0d5086;
+                border: 1px solid #23425c;
                 color: #23425c;
                 background: #dce4ea;
                 transition: 0.3s color ease-in-out, 0.3s background-color ease-in-out, 0.2s background-position ease-in-out, 0.3s border-color ease-in-out, 0.3s background-image ease-in-out;
