@@ -191,15 +191,15 @@
 
     .keyboard {
         border-top: 1px solid #aaa;
-        margin-top: 2rem;
-        padding: 2rem 0 0;
+        margin-top: 1.5rem;
+        padding: 1.5rem 0 0;
         width: 100%;
         user-select: none;
         background: #fdfdfd;
 
         @media only screen and (min-width: 768px) {
-            padding: 1rem;
-            margin-top: 0.75rem;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
         }
 
         &-row {
