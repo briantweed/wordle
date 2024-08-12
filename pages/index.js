@@ -160,7 +160,10 @@ const Wordle = () => {
             if (results.every(val => val === CLASS_NAMES.PLACED)) {
                 setGameOver(true);
                 setStreak(streak + 1);
+            } else if (guessedWords.length >= MAX_GUESS_ATTEMPTS) {
+                setStreak(0);
             }
+
             setStats([...stats, results]);
 
         } else {
