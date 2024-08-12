@@ -6,6 +6,8 @@ const Wordle = () => {
 
     const TEST_WORD = null;
 
+    const LOCAL_STORAGE_KEY = "wordiddily-streak";
+
     const MAX_WORD_LENGTH = 5;
 
     const MAX_GUESS_ATTEMPTS = 6;
@@ -120,7 +122,16 @@ const Wordle = () => {
 
     useEffect(() => {
         setWordle(getWordle());
+        const currentStreak = Number(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? 0;
+        setStreak(currentStreak);
     }, []);
+
+
+    useEffect(() => {
+        if (wordle) {
+            localStorage.setItem(LOCAL_STORAGE_KEY, streak.toString());
+        }
+    }, [streak])
 
 
     useEffect(() => {
@@ -207,7 +218,7 @@ const Wordle = () => {
         <div id="wordle">
 
             <div className="nav">
-                <div className="streak" title={wordle}>Streak: {streak}</div>
+                <div className="streak" title={wordle}>Streak: {wordle ? streak : ""}</div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
                 {gameOver && <button type={"button"} className={"reset"} onClick={handleReset}>new game</button>}
             </div>
