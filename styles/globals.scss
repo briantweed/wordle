@@ -182,11 +182,13 @@
                 }
 
                 &.present {
-                    background: #deca81;
+                    background: #c3a949;
+                    color: white;
                 }
 
                 &.placed {
-                    background: #80de6d;
+                    background: #45b031;
+                    color: white;
                 }
 
             }
@@ -273,7 +275,7 @@
                 background: #dce4ea;
             }
 
-            &.used {
+            &.used ,&.pass {
                 background: #ccc;
                 border: 1px solid #999;
                 color: #555;
@@ -286,11 +288,13 @@
             }
 
             &.present {
-                background: #deca81;
+                background: #c3a949;
+                color: white;
             }
 
             &.placed {
-                background: #80de6d;
+                background: #45b031;
+                color: white;
             }
 
         }

@@ -36,6 +36,8 @@ const Wordle = () => {
 
     const [guessedLetters, setGuessedLetters] = useState([]);
 
+    const [correctLetters, setCorrectLetters] = useState([]);
+
     const [guessedWords, setGuessedWords] = useState([]);
 
     const [remainingGuesses, setRemainingGuesses] = useState(MAX_GUESS_ATTEMPTS);
@@ -139,11 +141,20 @@ const Wordle = () => {
             const wordleLetters = wordle.split("");
             let availableLetters = [...wordleLetters];
 
+            let keyboardHighlights = [...correctLetters];
+
             currentGuess.forEach((guess, index) => {
                 if (guess === wordleLetters[index]) {
                     results[index] = CLASS_NAMES.PLACED;
                     const idx = availableLetters.findIndex(letter => letter === guess);
-                    availableLetters.splice(idx, 1)
+                    availableLetters.splice(idx, 1);
+                    keyboardHighlights = [
+                        ...keyboardHighlights.filter(item => item.letter !== guess),
+                        {
+                            letter: guess,
+                            className: CLASS_NAMES.PLACED
+                        }
+                    ];
                 }
             });
 
@@ -153,6 +164,13 @@ const Wordle = () => {
                         results[index] = CLASS_NAMES.PRESENT;
                         const idx = availableLetters.findIndex(letter => letter === guess);
                         availableLetters.splice(idx, 1);
+                        keyboardHighlights = [
+                            ...keyboardHighlights,
+                            {
+                                letter: guess,
+                                className: CLASS_NAMES.PRESENT
+                            }
+                        ];
                     }
                 }
             });
@@ -163,6 +181,8 @@ const Wordle = () => {
             } else if (guessedWords.length >= MAX_GUESS_ATTEMPTS) {
                 setStreak(0);
             }
+
+            setCorrectLetters(keyboardHighlights);
 
             setStats([...stats, results]);
 
@@ -186,6 +206,8 @@ const Wordle = () => {
         }
     }, [remainingGuesses]);
 
+
+    console.log(correctLetters);
 
     return (
         <div id="wordle">
@@ -242,12 +264,13 @@ const Wordle = () => {
                         <div key={index} className="keyboard-row">
                             {row.map((letter) => {
                                     const guessed = guessedLetters.includes(letter);
+                                    const correct = correctLetters.find(item => item.letter === letter) ?? {};
                                     return (
                                         <button
                                             type={"button"}
                                             key={letter}
                                             data-key={letter}
-                                            className={`keyboard-letter ${guessed ? "used" : ""}`}
+                                            className={`keyboard-letter ${guessed ? "used" : ""} ${correct.className}`}
                                             onClick={() => handleKeySelect(letter)}
                                         >{letter}</button>
                                     );
