@@ -258,7 +258,6 @@
             text-transform: uppercase;
             font-weight: 700;
             background: white;
-            transition: 0.3s color ease-in-out, 0.3s background-color ease-in-out, 0.2s background-position ease-in-out, 0.3s border-color ease-in-out, 0.3s background-image ease-in-out;
 
             @media only screen and (min-width: 768px) {
                 height: 45px;
@@ -269,7 +268,6 @@
                 border: 1px solid #23425c;
                 color: #23425c;
                 background: #dce4ea;
-                transition: 0.3s color ease-in-out, 0.3s background-color ease-in-out, 0.2s background-position ease-in-out, 0.3s border-color ease-in-out, 0.3s background-image ease-in-out;
             }
 
             &.used {
