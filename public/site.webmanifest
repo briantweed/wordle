@@ -1,7 +1,12 @@
 {
+    "id": "Wordiddily",
     "name": "Wordiddily",
     "short_name": "Wordiddily",
+    "display": "standalone",
     "start_url": "https://wordiddily.vercel.app/",
+    "orientation": "portrait-primary",
+    "theme_color": "#217CC2",
+    "background_color": "#217CC2",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,9 +18,5 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "orientation": "portrait-primary",
-    "theme_color": "#217CC2",
-    "background_color": "#217CC2",
-    "display": "standalone"
+    ]
 }
