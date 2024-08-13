@@ -220,7 +220,9 @@ const Wordle = () => {
             <div className="nav">
                 <div className="streak" title={wordle}>Streak: {wordle ? streak : ""}</div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
-                {gameOver && <button type={"button"} className={"reset"} onClick={handleReset}>new game</button>}
+                {gameOver && <div className="reset">
+                    <button type={"button"} onClick={handleReset}>start</button>
+                </div>}
             </div>
 
             <div className="guesses">

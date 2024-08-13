@@ -101,6 +101,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        min-height: 25px;
         margin: 0 0 1rem;
         padding-bottom: 1rem;
         border-bottom: 1px solid #aaa;
@@ -111,13 +112,20 @@
         }
 
         .reset {
-            border-radius: 100px;
-            padding: 0.1rem 0.5rem;
-            background: #276420;
-            font-size: 13px;
-            color: #f0f0f0;
-            margin-bottom: 0;
             min-width: 100px;
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                border-radius: 100px;
+                border: 2px solid #337226;
+                padding: 0.2rem 0.75rem;
+                background: #459b34;
+                font-size: 14px;
+                color: #f0f0f0;
+                margin-bottom: 0;
+            }
+
         }
 
         .word {
@@ -224,6 +232,7 @@
                         color: #fafafa;
                         font-weight: 500;
                         width: 60px;
+                        text-transform: lowercase;
 
                         @media only screen and (min-width: 768px) {
                             width: 75px;
