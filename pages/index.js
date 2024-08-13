@@ -210,6 +210,8 @@ const Wordle = () => {
     useEffect(() => {
         if (remainingGuesses <= 0) {
             setGameOver(true);
+        } else if (remainingGuesses === 1) {
+            localStorage.setItem(LOCAL_STORAGE_KEY, "0");
         }
     }, [remainingGuesses]);
 
