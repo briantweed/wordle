@@ -223,7 +223,11 @@
                         background: #6363a4;
                         color: #fafafa;
                         font-weight: 500;
-                        width: 75px;
+                        width: 60px;
+
+                        @media only screen and (min-width: 768px) {
+                            width: 75px;
+                        }
 
                         &:hover {
                             background: #535387;
@@ -236,7 +240,6 @@
                         background: #596266;
                         color: #fafafa;
                         font-weight: 500;
-                        width: 60px;
 
                         &:hover {
                             background: #495256;
@@ -253,7 +256,7 @@
 
         &-letter {
             cursor: pointer;
-            width: 55px;
+            width: 35px;
             height: 55px;
             font-size: 14px;
             display: flex;
