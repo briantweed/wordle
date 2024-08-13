@@ -196,13 +196,13 @@ const Wordle = () => {
         } else {
             setStats([]);
         }
-        setCurrentGuess([]);
     }, [guessedWords]);
 
 
     useEffect(() => {
         clearSelectedKeys();
         setGuessedLetters([...new Set([...guessedWords.toString().split("")])]);
+        setCurrentGuess([]);
         setRemainingGuesses(MAX_GUESS_ATTEMPTS - guessedWords.length);
     }, [stats]);
 
