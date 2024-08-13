@@ -128,7 +128,7 @@ const Wordle = () => {
 
 
     useEffect(() => {
-        if (wordle) {
+        if (streak > 0) {
             localStorage.setItem(LOCAL_STORAGE_KEY, streak.toString());
         }
     }, [streak])
@@ -230,7 +230,7 @@ const Wordle = () => {
         <div id="wordle">
 
             <div className="nav">
-                <div className="streak" title={wordle}>Streak: {wordle ? streak : ""}</div>
+                <div className="streak">Streak: {wordle ? streak : ""} <span className="cheat ml-2">{wordle}</span></div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
                 {gameOver && <div className="reset">
                     <button type={"button"} id={"start"} onClick={handleReset}>start</button>
