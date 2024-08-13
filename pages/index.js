@@ -202,7 +202,6 @@ const Wordle = () => {
     useEffect(() => {
         clearSelectedKeys();
         setGuessedLetters([...new Set([...guessedWords.toString().split("")])]);
-        setCurrentGuess([]);
         setRemainingGuesses(MAX_GUESS_ATTEMPTS - guessedWords.length);
     }, [stats]);
 
@@ -213,7 +212,18 @@ const Wordle = () => {
         } else if (remainingGuesses === 1) {
             localStorage.setItem(LOCAL_STORAGE_KEY, "0");
         }
+        setCurrentGuess([]);
     }, [remainingGuesses]);
+
+
+    useEffect(() => {
+        if (gameOver) {
+            const startButton = document.getElementById("start");
+            if (startButton) {
+                startButton.focus();
+            }
+        }
+    }, [gameOver]);
 
 
     return (
@@ -223,7 +233,7 @@ const Wordle = () => {
                 <div className="streak" title={wordle}>Streak: {wordle ? streak : ""}</div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
                 {gameOver && <div className="reset">
-                    <button type={"button"} onClick={handleReset}>start</button>
+                    <button type={"button"} id={"start"} onClick={handleReset}>start</button>
                 </div>}
             </div>
 
