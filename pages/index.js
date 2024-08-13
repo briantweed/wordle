@@ -196,6 +196,7 @@ const Wordle = () => {
         } else {
             setStats([]);
         }
+        setCurrentGuess([]);
     }, [guessedWords]);
 
 
@@ -212,7 +213,6 @@ const Wordle = () => {
         } else if (remainingGuesses === 1) {
             localStorage.setItem(LOCAL_STORAGE_KEY, "0");
         }
-        setCurrentGuess([]);
     }, [remainingGuesses]);
 
 
