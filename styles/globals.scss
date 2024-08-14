@@ -1,3 +1,13 @@
+@keyframes flipUp {
+    0% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+
+}
+
 @media only screen and (min-width: 768px) {
     *:focus {
         outline: 3px solid #E89A5A;
@@ -203,6 +213,28 @@
                     color: white;
                 }
 
+                &.flip {
+                    animation: flipUp 0.75s ease forwards;
+                    transform: rotateX(90deg);
+
+                    &:nth-child(2) {
+                        animation-delay: 0.2s;
+                    }
+
+                    &:nth-child(3) {
+                        animation-delay: 0.4s;
+                    }
+
+                    &:nth-child(4) {
+                        animation-delay: 0.6s;
+                    }
+
+                    &:nth-child(5) {
+                        animation-delay: 0.8s;
+
+                    }
+                }
+
             }
 
         }
@@ -294,7 +326,7 @@
                 background: #dce4ea;
             }
 
-            &.used ,&.pass {
+            &.used, &.pass {
                 background: #ccc;
                 border: 1px solid #999;
                 color: #555;

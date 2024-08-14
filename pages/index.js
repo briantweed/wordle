@@ -92,6 +92,7 @@ const Wordle = () => {
         if (!WORD_LIST.includes(guessedWord)) {
             setErrorClass(CLASS_NAMES.ERROR);
         } else {
+            setCurrentGuess([]);
             setGuessedWords([...guessedWords, guessedWord]);
         }
     }
@@ -152,6 +153,7 @@ const Wordle = () => {
             const wordleLetters = wordle.split("");
             let availableLetters = [...wordleLetters];
             let keyboardHighlights = [...correctLetters];
+            const currentGuess = guessedWords.slice(-1)[0].split("");
 
             currentGuess.forEach((guess, index) => {
                 if (guess === wordleLetters[index]) {
@@ -202,7 +204,6 @@ const Wordle = () => {
     useEffect(() => {
         clearSelectedKeys();
         setGuessedLetters([...new Set([...guessedWords.toString().split("")])]);
-        setCurrentGuess([]);
         setRemainingGuesses(MAX_GUESS_ATTEMPTS - guessedWords.length);
     }, [stats]);
 
@@ -245,7 +246,7 @@ const Wordle = () => {
                             {[...Array(MAX_WORD_LENGTH)].map((letter, pos) => {
                                 let className = stats[index] !== undefined && [pos] !== undefined ? stats[index][pos] : "";
                                 return (
-                                    <div className={`letter roboto-medium ${className}`}
+                                    <div className={`letter flip roboto-medium ${className}`}
                                          key={pos}>{word[pos] ? word[pos].toUpperCase() : ""}</div>
                                 );
                             })}
