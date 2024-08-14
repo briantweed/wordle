@@ -55,11 +55,13 @@ const Wordle = () => {
 
 
     const fireTheCannons = () => {
-        confetti({
-            particleCount: 100,
-            spread: 150,
-            origin: { y: 0.5  }
-        });
+        setTimeout(() => {
+            confetti({
+                particleCount: 100,
+                spread: 150,
+                origin: { y: 0.5 }
+            });
+        }, 900);
     }
 
     const getWordle = () => {
