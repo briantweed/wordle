@@ -201,6 +201,7 @@ const Wordle = () => {
             if (results.every(val => val === CLASS_NAMES.PLACED)) {
                 setGameOver(true);
                 setStreak(streak + 1);
+                fireTheCannons();
             } else if (guessedWords.length >= MAX_GUESS_ATTEMPTS) {
                 setStreak(0);
             }
@@ -234,7 +235,6 @@ const Wordle = () => {
             if (startButton) {
                 startButton.focus();
             }
-            fireTheCannons();
         }
     }, [gameOver]);
 
@@ -268,7 +268,7 @@ const Wordle = () => {
 
                 {remainingGuesses > 0 && (
                     <>
-                        <div className={`guess ${remainingGuesses === 1 ? "eek" : ""} ${gameOver ? "" : "current"} ${errorClass}`}>
+                        <div className={`guess ${gameOver ? "" : "current"} ${remainingGuesses === 1 ? "eek" : ""} ${errorClass}`}>
                             {[...Array(MAX_WORD_LENGTH)].map((letter, index) => {
                                 return (
                                     <div className={"letter"} key={index}>{currentGuess[index] ? currentGuess[index].toUpperCase() : ""}</div>

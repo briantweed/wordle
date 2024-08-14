@@ -167,19 +167,20 @@
 
             &.current {
                 background: #fbf5ed;
-            }
 
-            &.current.eek {
-                background: #fee5e5;
-            }
+                &.eek {
+                    background: #fee5e5;
+                }
 
-            &.error {
-                background: #f8ecec;
+                &.error {
+                    background: #f8ecec;
 
-                .letter {
-                    border: 1px solid #cc2323;
-                    color: #cc2323;
-                    background: #ffe2e2;
+                    .letter {
+                        border: 1px solid #cc2323;
+                        color: #cc2323;
+                        background: #ffe2e2;
+                    }
+
                 }
 
             }
