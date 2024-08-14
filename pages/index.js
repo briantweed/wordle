@@ -241,7 +241,7 @@ const Wordle = () => {
 
     return (
         <div id="wordle">
-            {wordle}
+
             <div className="nav">
                 <div className="streak">Streak: {wordle ? streak : ""}</div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
