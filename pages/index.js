@@ -222,7 +222,7 @@ const Wordle = () => {
     useEffect(() => {
         if (remainingGuesses <= 0) {
             setGameOver(true);
-        } else if (remainingGuesses === 1) {
+        } else if (remainingGuesses === 1 && !gameOver) {
             localStorage.setItem(LOCAL_STORAGE_KEY, "0");
         }
     }, [remainingGuesses]);
@@ -241,7 +241,7 @@ const Wordle = () => {
 
     return (
         <div id="wordle">
-
+            {wordle}
             <div className="nav">
                 <div className="streak">Streak: {wordle ? streak : ""}</div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
