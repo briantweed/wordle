@@ -1,5 +1,6 @@
 import {useEffect, useMemo, useState} from "react";
 import {WORD_LIST, POSSIBLE_WORDS} from "@config/wordle";
+import confetti from "canvas-confetti";
 
 
 const Wordle = () => {
@@ -52,6 +53,14 @@ const Wordle = () => {
 
     const [gameOver, setGameOver] = useState(false);
 
+
+    const fireTheCannons = () => {
+        confetti({
+            particleCount: 100,
+            spread: 150,
+            origin: { y: 0.5  }
+        });
+    }
 
     const getWordle = () => {
         return TEST_WORD ?? POSSIBLE_WORDS[Math.floor(Math.random() * POSSIBLE_WORDS.length)];
@@ -223,6 +232,7 @@ const Wordle = () => {
             if (startButton) {
                 startButton.focus();
             }
+            fireTheCannons();
         }
     }, [gameOver]);
 
@@ -231,7 +241,7 @@ const Wordle = () => {
         <div id="wordle">
 
             <div className="nav">
-                <div className="streak">Streak: {wordle ? streak : ""} <span className="cheat ml-2">{wordle}</span></div>
+                <div className="streak">Streak: {wordle ? streak : ""}</div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
                 {gameOver && <div className="reset">
                     <button type={"button"} id={"start"} onClick={handleReset}>start</button>
