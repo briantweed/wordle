@@ -59,8 +59,8 @@ const Wordle = () => {
     const fireTheCannons = () => {
         setTimeout(() => {
             confetti({
-                particleCount: 100,
-                spread: 150,
+                particleCount: 150,
+                spread: 100,
                 origin: {y: 0.5}
             });
         }, 900);
