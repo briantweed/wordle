@@ -106,6 +106,7 @@ const Wordle = () => {
             setErrorClass(CLASS_NAMES.ERROR);
         } else {
             setCurrentGuess([]);
+            setRemainingGuesses(MAX_GUESS_ATTEMPTS - guessedWords.length);
             setGuessedWords([...guessedWords, guessedWord]);
         }
     }
@@ -171,9 +172,6 @@ const Wordle = () => {
 
     useEffect(() => {
         if (guessedWords.length > 0) {
-
-            setRemainingGuesses(MAX_GUESS_ATTEMPTS - guessedWords.length);
-            
             const results = [...Array(MAX_WORD_LENGTH).fill(CLASS_NAMES.PASSED)];
             const wordleLetters = wordle.split("");
             let availableLetters = [...wordleLetters];
