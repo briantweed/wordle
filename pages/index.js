@@ -262,7 +262,7 @@ const Wordle = () => {
                     </div>
                 ) : (
                     <div className="theme">
-                        <div onClick={updateTheme}>{theme === "dark" ? <span>&#9788;</span> : <span>&#9789;</span>}</div>
+                        <div tabIndex="0" onClick={updateTheme}>{theme === "dark" ? <span>&#9788;</span> : <span>&#9789;</span>}</div>
                     </div>
                 )}
             </div>
