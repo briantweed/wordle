@@ -48,12 +48,9 @@ $fontPath: "/fonts/";
     position: relative;
     background: white;
     margin: auto;
+    min-width: 320px;
 
     @media only screen and (min-width: 768px) {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 650px;
         padding: 0.75rem 1rem;
     }
 
@@ -67,7 +64,7 @@ $fontPath: "/fonts/";
         justify-content: space-between;
         align-items: center;
         min-height: 25px;
-        margin: 0 0 1rem;
+        margin: 0 auto 1rem;
         padding: 1rem 0.5rem;
         border-bottom: 1px solid #aaa;
 
@@ -76,7 +73,8 @@ $fontPath: "/fonts/";
         }
 
         @media only screen and (min-width: 768px) {
-            margin: 0 0 0.75rem;
+            max-width: 1000px;
+            margin: 0 auto 0.75rem;
             padding-bottom: 0.75rem;
         }
 
@@ -129,6 +127,8 @@ $fontPath: "/fonts/";
     .guesses {
         width: 100%;
         user-select: none;
+        max-width: 1000px;
+        margin: 0 auto;
 
         .guess {
             display: flex;
@@ -220,10 +220,11 @@ $fontPath: "/fonts/";
 
     .keyboard {
         border-top: 1px solid #aaa;
-        margin-top: 1rem;
         padding: 1rem 4px;
         user-select: none;
         background: #fdfdfd;
+        max-width: 1000px;
+        margin: 1rem auto 0;
 
         @media only screen and (min-width: 768px) {
             padding: 0.75rem;

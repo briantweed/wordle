@@ -8,8 +8,7 @@ export default function App({Component, pageProps}) {
         <Provider store={store}>
             <Head>
                 <meta charSet="UTF-8"/>
-                <meta name="viewport"
-                      content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"/>
+                <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"/>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
 
                 <title>Wordiddily</title>
@@ -22,17 +21,17 @@ export default function App({Component, pageProps}) {
                 <meta name="language" content="en"/>
                 <meta name="owner" content="brtweed"/>
                 <meta name="rating" content="General"/>
-                <meta name="MobileOptimized" content="420"/>
-                <meta name="revised" content="Thursday, August 1st, 2024, 09:00am"/>
+                <meta name="MobileOptimized" content="325"/>
+                <meta name="revised" content="Friday, August 16th, 2024, 01:00am"/>
                 <meta name="revisit-after" content="7 days"/>
-                <meta name="theme-color" content="#367787"/>
-                <meta name="msapplication-TileColor" content="#367787"/>
+                <meta name="theme-color" content="#2B2B2B"/>
+                <meta name="msapplication-TileColor" content="#2B2B2B"/>
 
                 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
                 <link rel="manifest" href="/manifest.json"/>
-                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#367787"/>
+                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2B2B2B"/>
 
             </Head>
 

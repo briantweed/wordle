@@ -5,8 +5,8 @@
     "display": "standalone",
     "start_url": "https://wordiddily.vercel.app/",
     "orientation": "portrait-primary",
-    "theme_color": "#367787",
-    "background_color": "#367787",
+    "theme_color": "#2B2B2B",
+    "background_color": "#2B2B2B",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
