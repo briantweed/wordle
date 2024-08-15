@@ -275,7 +275,7 @@ const Wordle = () => {
                             {[...Array(MAX_WORD_LENGTH)].map((letter, pos) => {
                                 let className = stats[index] !== undefined && [pos] !== undefined ? stats[index][pos] : "";
                                 return (
-                                    <div className={`letter flip roboto-medium ${className}`}
+                                    <div className={`letter flip ${className}`}
                                          key={pos}>{word[pos] ? word[pos].toUpperCase() : ""}</div>
                                 );
                             })}

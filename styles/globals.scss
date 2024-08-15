@@ -20,77 +20,27 @@ body {
     background: #151530;
 }
 
-.roboto-thin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: normal;
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("/fonts/Roboto-Regular.ttf") format("ttf");
+    font-display: swap;
 }
 
-.roboto-light {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url("/fonts/Roboto-Medium.ttf") format("ttf");
+    font-display: swap;
 }
 
-.roboto-regular {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("/fonts/Roboto-Bold.ttf") format("ttf");
+    font-display: swap;
 }
 
-.roboto-medium {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
 
-.roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.roboto-black {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-}
-
-.roboto-thin-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-}
-
-.roboto-light-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.roboto-regular-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.roboto-medium-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-}
-
-.roboto-bold-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.roboto-black-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-}
 
 #wordle {
     position: relative;
@@ -105,7 +55,7 @@ body {
         padding: 0.75rem 1rem;
     }
 
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto-Regular", Arial, sans-serif;
     font-weight: 400;
     font-style: normal;
 
@@ -161,11 +111,13 @@ body {
 
         .word {
             font-weight: 700;
+            font-family: "Roboto-Bold", Arial, sans-serif;
             text-transform: uppercase;
         }
 
         .streak {
-            font-weight: bold;
+            font-weight: 700;
+            font-family: "Roboto-Regular", Arial, sans-serif;
             color: #233246;
             min-width: 100px;
         }
@@ -202,6 +154,7 @@ body {
             }
 
             .letter {
+                font-family: "Roboto-Bold", Arial, sans-serif;
                 font-weight: 700;
                 color: #233246;
                 width: 60px;
@@ -289,6 +242,7 @@ body {
                         border-color: #6363a4;
                         color: #fafafa;
                         font-weight: 500;
+                        font-family: "Roboto-Medium", Arial, sans-serif;
                         width: 60px;
                         text-transform: lowercase;
 
@@ -307,6 +261,7 @@ body {
                         background: #596266;
                         border-color: #596266;
                         color: #fafafa;
+                        font-family: "Roboto-Medium", Arial, sans-serif;
                         font-weight: 500;
 
                         &:hover {
@@ -336,6 +291,7 @@ body {
             margin: 4px 2px;
             text-transform: uppercase;
             font-weight: 700;
+            font-family: "Roboto-Bold", Arial, sans-serif;
             background: white;
 
             @media only screen and (min-width: 768px) {
