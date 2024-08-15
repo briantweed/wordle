@@ -53,13 +53,15 @@ const Wordle = () => {
 
     const [gameOver, setGameOver] = useState(false);
 
+    const [theme, setTheme] = useState("");
+
 
     const fireTheCannons = () => {
         setTimeout(() => {
             confetti({
                 particleCount: 100,
                 spread: 150,
-                origin: { y: 0.5 }
+                origin: {y: 0.5}
             });
         }, 900);
     }
@@ -132,10 +134,19 @@ const Wordle = () => {
     };
 
 
+    const updateTheme = () => {
+        const updatedTheme = theme === "dark" ? "" : "dark";
+        setTheme(updatedTheme);
+        localStorage.setItem("theme", updatedTheme);
+    }
+
+
     useEffect(() => {
         setWordle(getWordle());
         const currentStreak = Number(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? 0;
+        const theme = localStorage.getItem("theme") ?? "";
         setStreak(currentStreak);
+        setTheme(theme);
     }, []);
 
 
@@ -240,14 +251,20 @@ const Wordle = () => {
 
 
     return (
-        <div id="wordle">
+        <div id="wordle" className={theme}>
 
             <div className="nav">
                 <div className="streak">Streak: {wordle ? streak : ""}</div>
                 {gameOver && <div className={"word"}>{wordle}</div>}
-                {gameOver && <div className="reset">
-                    <button type={"button"} id={"start"} onClick={handleReset}>start</button>
-                </div>}
+                {gameOver ? (
+                    <div className="reset">
+                        <button type={"button"} id={"start"} onClick={handleReset}>start</button>
+                    </div>
+                ) : (
+                    <div className="theme">
+                        <div onClick={updateTheme}>{theme === "dark" ? <span>&#9788;</span> : <span>&#9789;</span>}</div>
+                    </div>
+                )}
             </div>
 
             <div className="guesses">
@@ -268,10 +285,12 @@ const Wordle = () => {
 
                 {remainingGuesses > 0 && (
                     <>
-                        <div className={`guess ${gameOver ? "" : "current"} ${remainingGuesses === 1 ? "eek" : ""} ${errorClass}`}>
+                        <div
+                            className={`guess ${gameOver ? "" : "current"} ${remainingGuesses === 1 ? "eek" : ""} ${errorClass}`}>
                             {[...Array(MAX_WORD_LENGTH)].map((letter, index) => {
                                 return (
-                                    <div className={"letter"} key={index}>{currentGuess[index] ? currentGuess[index].toUpperCase() : ""}</div>
+                                    <div className={"letter"}
+                                         key={index}>{currentGuess[index] ? currentGuess[index].toUpperCase() : ""}</div>
                                 );
                             })}
                         </div>

@@ -145,6 +145,18 @@ body {
 
         }
 
+        .theme {
+            min-width: 100px;
+            display: flex;
+            justify-content: flex-end;
+
+            span {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+
         .word {
             font-weight: 700;
             text-transform: uppercase;
@@ -274,6 +286,7 @@ body {
 
                     &:first-of-type {
                         background: #6363a4;
+                        border-color: #6363a4;
                         color: #fafafa;
                         font-weight: 500;
                         width: 60px;
@@ -292,6 +305,7 @@ body {
 
                     &:last-of-type {
                         background: #596266;
+                        border-color: #596266;
                         color: #fafafa;
                         font-weight: 500;
 
@@ -357,6 +371,87 @@ body {
                 color: white;
             }
 
+        }
+
+    }
+
+    &.dark {
+        background: #333344;
+
+        .nav {
+            border-bottom-color: #666;
+
+            .streak, .word {
+                color: white;
+            }
+
+            .theme {
+                span {
+                    color: #ccc;
+                }
+            }
+
+        }
+
+        .guesses {
+
+            .guess {
+
+                &.current {
+                    background: #6d621b;
+
+                    .letter {
+                        border-color: black;
+                    }
+
+                    &.eek {
+                        background: #8b4242;
+                    }
+
+                    &.error {
+                        background: #8b4242;
+
+                        .letter {
+                            border: 1px solid #cc2323;
+                            color: #a71717;
+                            background: #f5cbcb;
+                        }
+
+                    }
+
+                }
+
+                .letter {
+                    background: #bbb;
+
+                    &.pass {
+                        background: #aaa;
+                    }
+
+                    &.present {
+                        background: #c3a949;
+                        color: white;
+                    }
+
+                    &.placed {
+                        background: #459b34;
+                        color: white;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .keyboard {
+            background: #151530;
+
+            &-letter {
+                background: #ccc;
+                border-color: #ccc;
+                color: black;
+            }
         }
 
     }
