@@ -106,7 +106,7 @@ const Wordle = () => {
             setErrorClass(CLASS_NAMES.ERROR);
         } else {
             setCurrentGuess([]);
-            setRemainingGuesses(MAX_GUESS_ATTEMPTS - guessedWords.length);
+            setRemainingGuesses(MAX_GUESS_ATTEMPTS - (guessedWords.length + 1));
             setGuessedWords([...guessedWords, guessedWord]);
         }
     }
