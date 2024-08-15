@@ -20,23 +20,25 @@ body {
     background: #151530;
 }
 
+$fontPath: "/fonts/";
+
 @font-face {
     font-family: "Roboto-Regular";
-    src: url("/fonts/Roboto-Regular.ttf") format("ttf");
+    src: url($fontPath + "Roboto-Regular.ttf") format("ttf");
     font-display: swap;
 }
 
 
 @font-face {
     font-family: "Roboto-Medium";
-    src: url("/fonts/Roboto-Medium.ttf") format("ttf");
+    src: url($fontPath + "Roboto-Medium.ttf") format("ttf");
     font-display: swap;
 }
 
 
 @font-face {
     font-family: "Roboto-Bold";
-    src: url("/fonts/Roboto-Bold.ttf") format("ttf");
+    src: url($fontPath + "Roboto-Bold.ttf") format("ttf");
     font-display: swap;
 }
 
