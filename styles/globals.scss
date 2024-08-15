@@ -15,6 +15,10 @@
     }
 }
 
+body {
+    margin: 0;
+}
+
 .roboto-thin {
     font-family: "Roboto", sans-serif;
     font-weight: 100;
@@ -91,7 +95,7 @@
     position: relative;
     background: white;
     margin: auto;
-    padding: 0.5rem;
+    padding: 1rem 0.25rem;
 
     @media only screen and (min-width: 768px) {
         display: flex;
@@ -110,9 +114,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
         min-height: 25px;
-        margin: 0 0 1rem;
+        margin: 0 0.5rem 1rem;
         padding-bottom: 1rem;
         border-bottom: 1px solid #aaa;
 
@@ -169,7 +172,7 @@
                 background: #fbf5ed;
 
                 &.eek {
-                    background: #fee5e5;
+                    background: #ffecec;
                 }
 
                 &.error {
@@ -198,6 +201,7 @@
                 margin: 5px 3px;
                 text-transform: uppercase;
                 background: white;
+                font-size: 24px;
 
                 @media only screen and (min-width: 768px) {
                     margin: 0.5rem 0.25rem;
