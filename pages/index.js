@@ -129,6 +129,7 @@ const Wordle = () => {
 
     const handleReset = () => {
         setGuessedWords([]);
+        setRemainingGuesses(MAX_GUESS_ATTEMPTS);
         setCorrectLetters([]);
         setWordle(getWordle());
         setGameOver(false);
