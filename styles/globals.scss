@@ -381,7 +381,7 @@ body {
         background: #333344;
 
         .nav {
-            border-bottom-color: #666;
+            border-bottom-color: #888;
 
             .streak, .word {
                 color: white;
@@ -449,6 +449,7 @@ body {
 
         .keyboard {
             background: #151530;
+            border-top-color: #888;
 
             &-letter {
                 background: #ddd;
