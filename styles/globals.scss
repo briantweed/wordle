@@ -96,7 +96,7 @@ body {
     position: relative;
     background: white;
     margin: auto;
-    padding: 1rem 0.25rem;
+    padding: 1rem 0;
 
     @media only screen and (min-width: 768px) {
         display: flex;
@@ -268,7 +268,7 @@ body {
     .keyboard {
         border-top: 1px solid #aaa;
         margin-top: 1rem;
-        padding: 1rem 0;
+        padding: 1rem 4px;
         width: 100%;
         user-select: none;
         background: #fdfdfd;
@@ -425,7 +425,8 @@ body {
                 }
 
                 .letter {
-                    background: #bbb;
+                    background: #ddd;
+                    color: black;
 
                     &.pass {
                         background: #aaa;
@@ -451,9 +452,32 @@ body {
             background: #151530;
 
             &-letter {
-                background: #ccc;
+                background: #ddd;
                 border-color: #ccc;
                 color: black;
+
+                &.used, &.pass {
+                    background: #aaa;
+                    border: 1px solid #999;
+                    color: black;
+                }
+
+                &.pressed {
+                    background: #367787;
+                    border: 1px solid #0f81bf;
+                    color: #fff;
+                }
+
+                &.present {
+                    background: #c3a949;
+                    color: white;
+                }
+
+                &.placed {
+                    background: #459b34;
+                    color: white;
+                }
+
             }
         }
 
