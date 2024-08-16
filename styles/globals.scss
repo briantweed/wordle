@@ -49,15 +49,9 @@ $fontPath: "/fonts/";
     background: white;
     margin: auto;
     min-width: 320px;
-
-    @media only screen and (min-width: 768px) {
-        padding: 0.75rem 1rem;
-    }
-
     font-family: "Roboto-Regular", Arial, sans-serif;
     font-weight: 400;
     font-style: normal;
-
 
     .nav {
         display: flex;
@@ -247,7 +241,7 @@ $fontPath: "/fonts/";
                         color: #fafafa;
                         font-weight: 500;
                         font-family: "Roboto-Medium", Arial, sans-serif;
-                        width: 60px;
+                        width: 55px;
                         text-transform: lowercase;
 
                         @media only screen and (min-width: 768px) {
@@ -267,6 +261,7 @@ $fontPath: "/fonts/";
                         color: #fafafa;
                         font-family: "Roboto-Medium", Arial, sans-serif;
                         font-weight: 500;
+                        width: 40px;
 
                         &:hover {
                             background: #495256;
