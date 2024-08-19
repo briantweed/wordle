@@ -378,11 +378,13 @@ $fontPath: "/fonts/";
                 }
 
                 .letter {
-                    background: #ddd;
-                    color: black;
+                    background: #112;
+                    color: #ddd;
+                    border-color: #558;
+                ;
 
                     &.pass {
-                        background: #aaa;
+                        background: #778;
                     }
 
                     &.present {
