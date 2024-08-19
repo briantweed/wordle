@@ -131,14 +131,8 @@ $fontPath: "/fonts/";
             align-items: center;
 
             &.current {
-                background: #fbf5ed;
-
-                &.eek {
-                    background: #ffecec;
-                }
 
                 &.error {
-                    background: #f8ecec;
 
                     .letter {
                         border: 1px solid #cc2323;
@@ -354,23 +348,17 @@ $fontPath: "/fonts/";
             .guess {
 
                 &.current {
-                    background: #4e4633;
 
                     .letter {
                         border-color: black;
                     }
 
-                    &.eek {
-                        background: #8b4242;
-                    }
-
                     &.error {
-                        background: #8b4242;
 
                         .letter {
                             border: 1px solid #cc2323;
-                            color: #a71717;
-                            background: #f5cbcb;
+                            color: #ffd4d4;
+                            background: #760d0d;
                         }
 
                     }
