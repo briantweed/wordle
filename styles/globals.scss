@@ -349,10 +349,6 @@ $fontPath: "/fonts/";
 
                 &.current {
 
-                    .letter {
-                        border-color: black;
-                    }
-
                     &.error {
 
                         .letter {
@@ -372,15 +368,18 @@ $fontPath: "/fonts/";
 
                     &.pass {
                         background: #778;
+                        border-color: #557;
                     }
 
                     &.present {
                         background: #c3a949;
+                        border-color: #9c8737;
                         color: white;
                     }
 
                     &.placed {
                         background: #459b34;
+                        border-color: #2b661f;
                         color: white;
                     }
 
