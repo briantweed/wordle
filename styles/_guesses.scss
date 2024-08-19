@@ -1,0 +1,87 @@
+.guesses {
+    width: 100%;
+    user-select: none;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .guess {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.current {
+
+            &.error {
+
+                .letter {
+                    border: 1px solid #cc2323;
+                    color: #cc2323;
+                    background: #ffe2e2;
+                }
+
+            }
+
+        }
+
+        .letter {
+            font-family: "Roboto-Bold", Arial, sans-serif;
+            font-weight: 700;
+            color: #233246;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #666;
+            border-radius: 6px;
+            margin: 5px 3px;
+            text-transform: uppercase;
+            background: white;
+            font-size: 23px;
+
+            @media only screen and (min-width: 768px) {
+                margin: 0.5rem 0.25rem;
+                height: 55px;
+            }
+
+            &.pass {
+                background: #cccccc;
+            }
+
+            &.present {
+                background: #c3a949;
+                color: white;
+            }
+
+            &.placed {
+                background: #459b34;
+                color: white;
+            }
+
+            &.flip {
+                animation: flipUp 0.75s ease forwards;
+                transform: rotateX(90deg);
+
+                &:nth-child(2) {
+                    animation-delay: 0.2s;
+                }
+
+                &:nth-child(3) {
+                    animation-delay: 0.4s;
+                }
+
+                &:nth-child(4) {
+                    animation-delay: 0.6s;
+                }
+
+                &:nth-child(5) {
+                    animation-delay: 0.8s;
+
+                }
+            }
+
+        }
+
+    }
+
+}

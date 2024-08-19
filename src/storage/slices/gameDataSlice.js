@@ -1,6 +1,29 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const initialState = {};
+
+const initialState = {
+
+    wordle: "",
+
+    gameOver: false,
+
+    currentGuess: [],
+
+    guessedLetters: [],
+
+    correctLetters: [],
+
+    guessedWords: [],
+
+    remainingGuesses: 6,
+
+    stats: [],
+
+    streak: 0,
+
+    errorClass: ""
+
+};
 
 
 export const gameDataSlice = createSlice({

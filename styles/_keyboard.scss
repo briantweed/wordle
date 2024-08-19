@@ -1,0 +1,116 @@
+.keyboard {
+    border-top: 1px solid #aaa;
+    padding: 1rem 4px;
+    user-select: none;
+    background: #fdfdfd;
+    max-width: 1000px;
+    margin: 1rem auto 0;
+
+    @media only screen and (min-width: 768px) {
+        padding: 0.75rem;
+        margin-top: 0.5rem;
+    }
+
+    &-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:last-of-type {
+
+            .keyboard-letter {
+
+                &:first-of-type {
+                    background: #6363a4;
+                    border-color: #6363a4;
+                    color: #fafafa;
+                    font-weight: 500;
+                    font-family: "Roboto-Medium", Arial, sans-serif;
+                    width: 55px;
+                    text-transform: lowercase;
+
+                    @media only screen and (min-width: 768px) {
+                        width: 75px;
+                    }
+
+                    &:hover {
+                        background: #535387;
+                        color: #fafafa;
+                    }
+
+                }
+
+                &:last-of-type {
+                    background: #596266;
+                    border-color: #596266;
+                    color: #fafafa;
+                    font-family: "Roboto-Medium", Arial, sans-serif;
+                    font-weight: 500;
+                    width: 40px;
+
+                    &:hover {
+                        background: #495256;
+                        color: #fafafa;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    &-letter {
+        cursor: pointer;
+        width: 35px;
+        height: 55px;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #367787;
+        color: #367787;
+        border-radius: 6px;
+        margin: 4px 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: "Roboto-Bold", Arial, sans-serif;
+        background: white;
+
+        @media only screen and (min-width: 768px) {
+            height: 45px;
+            margin: 0.25rem;
+        }
+
+        &:hover {
+            border: 1px solid #23425c;
+            color: #23425c;
+            background: #dce4ea;
+        }
+
+        &.used, &.pass {
+            background: #ccc;
+            border: 1px solid #999;
+            color: #555;
+        }
+
+        &.pressed {
+            background: #367787;
+            border: 1px solid #0f81bf;
+            color: #fff;
+        }
+
+        &.present {
+            background: #c3a949;
+            color: white;
+        }
+
+        &.placed {
+            background: #459b34;
+            color: white;
+        }
+
+    }
+
+}

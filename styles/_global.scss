@@ -1,0 +1,21 @@
+@media only screen and (min-width: 768px) {
+    *:focus {
+        outline: 3px solid #E89A5A;
+        outline-offset: 3px;
+    }
+}
+
+body {
+    margin: 0;
+    background: #151530;
+}
+
+.gameBoard {
+    position: relative;
+    background: white;
+    margin: auto;
+    min-width: 320px;
+    font-family: "Roboto-Regular", Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

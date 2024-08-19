@@ -4,6 +4,7 @@
             "@/*": ["./*"],
             "@styles/*": ["styles/*"],
             "@config/*": ["src/config/*"],
+            "@components/*": ["src/components/*"],
             "@storage/*": ["src/storage/*"]
         }
     }
