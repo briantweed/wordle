@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {MAX_GUESS_ATTEMPTS} from "@config/general";
 
 
 const initialState = {
@@ -15,7 +16,7 @@ const initialState = {
 
     guessedWords: [],
 
-    remainingGuesses: 6,
+    remainingGuesses: MAX_GUESS_ATTEMPTS,
 
     stats: [],
 
@@ -33,14 +34,14 @@ export const gameDataSlice = createSlice({
     initialState,
 
     reducers: {
-        clear: () => initialState
+        clearData: () => initialState
     }
 
 });
 
 
 export const {
-    clear
+    clearData
 } = gameDataSlice.actions;
 
 

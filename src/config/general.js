@@ -10,6 +10,8 @@ module.exports = {
 
     DEFAULT_THEME: "",
 
+    DARK_MODE_THEME: "dark",
+
     MAX_WORD_LENGTH: 5,
 
     MAX_GUESS_ATTEMPTS: 6,
@@ -24,7 +26,7 @@ module.exports = {
 
     DELETE_ENTRY_KEYS: ["<", "backspace", "delete"],
 
-    SUBMIT_ENTRY_KEYS: ["enter", " "]
+    SUBMIT_ENTRY_KEYS: ["Enter", " ", "Spacebar"]
 
 };
 

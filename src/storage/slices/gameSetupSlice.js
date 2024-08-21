@@ -13,8 +13,6 @@ import {
 
 const initialState = {
 
-    testWord: null,
-
     localStorageKey: LOCAL_STORAGE_KEY,
 
     maxWordLength: MAX_WORD_LENGTH,
@@ -43,15 +41,15 @@ export const gameDataSlice = createSlice({
     initialState,
 
     reducers: {
-        clear: () => initialState
+        updateSetup: (state, action) => {
+            return {...state, ...action.payload}
+        }
+
     }
 
 });
 
 
-export const {
-    clear
-} = gameDataSlice.actions;
-
+export const {updateSetup} = gameDataSlice.actions;
 
 export default gameDataSlice.reducer;

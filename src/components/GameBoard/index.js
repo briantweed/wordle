@@ -1,25 +1,22 @@
-import {useEffect, useState} from "react";
-import {DEFAULT_THEME} from "@config/general";
+import {useEffect} from "react";
+import {useSelector} from "react-redux";
 
 
 const GameBoard = (props) => {
 
     const {children} = props;
 
-    const [theme, setTheme] = useState(DEFAULT_THEME);
+    const {
+        theme
+    } = useSelector((state) => state.gameSetup);
 
 
     useEffect(() => {
-        const theme = localStorage.getItem("theme") ?? DEFAULT_THEME;
-
-        setTheme(theme);
-        document.querySelector("body").classList.value = theme;
-
+        document.querySelector("body").classList.value = "";
         return () => {
             document.querySelector("body").classList.value = "";
         }
-
-    }, []);
+    }, [theme]);
 
 
     return (

@@ -3,6 +3,7 @@ import {WORD_LIST, POSSIBLE_WORDS} from "@config/wordle";
 import confetti from "canvas-confetti";
 import {KEYBOARD_LAYOUT, MAX_GUESS_ATTEMPTS, MAX_WORD_LENGTH} from "@config/general";
 import GameBoard from "@components/GameBoard";
+import NavigationBar from "@components/NavigationBar";
 
 
 const Wordle = () => {
@@ -45,8 +46,6 @@ const Wordle = () => {
     const [errorClass, setErrorClass] = useState("");
 
     const [gameOver, setGameOver] = useState(false);
-
-    const [theme, setTheme] = useState("");
 
 
     const fireTheCannons = () => {
@@ -129,20 +128,11 @@ const Wordle = () => {
     };
 
 
-    const updateTheme = () => {
-        const updatedTheme = theme === "dark" ? "" : "dark";
-        setTheme(updatedTheme);
-        document.querySelector("body").classList.value = updatedTheme;
-        localStorage.setItem("theme", updatedTheme);
-    }
-
 
     useEffect(() => {
         setWordle(getWordle());
         const currentStreak = Number(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? 0;
-        const theme = localStorage.getItem("theme") ?? "";
         setStreak(currentStreak);
-        setTheme(theme);
     }, []);
 
 
@@ -248,19 +238,7 @@ const Wordle = () => {
     return (
         <GameBoard>
 
-            <div className="nav">
-                <div className="streak">Streak: {wordle ? streak : ""}</div>
-                {gameOver && <div className={"word"}>{wordle}</div>}
-                {gameOver ? (
-                    <div className="reset">
-                        <button type={"button"} id={"start"} onClick={handleReset}>start</button>
-                    </div>
-                ) : (
-                    <div className="theme">
-                        <div tabIndex="0" aria-label={"toggle theme"} role="button" onClick={updateTheme}>{theme === "dark" ? <span>&#9788;</span> : <span>&#9789;</span>}</div>
-                    </div>
-                )}
-            </div>
+            <NavigationBar/>
 
             <div className="guesses">
                 {guessedWords.map((word, index) => {
