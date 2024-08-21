@@ -1,11 +1,15 @@
 import {useDispatch, useSelector} from "react-redux";
 import {updateSetup} from "@storage/slices/gameSetupSlice";
-import {DARK_MODE_THEME, DEFAULT_THEME, SUBMIT_ENTRY_KEYS} from "@config/general";
+import {DARK_MODE_THEME, DEFAULT_THEME, MAX_GUESS_ATTEMPTS, SUBMIT_ENTRY_KEYS} from "@config/general";
+import {updateData} from "@storage/slices/gameDataSlice";
+import useWordle from "@hooks/useWordle";
 
 
 const NavigationBar = () => {
 
     const dispatch = useDispatch();
+
+    const [generateWordle] = useWordle();
 
     const {theme} = useSelector((state) => state.gameSetup);
 
@@ -29,6 +33,17 @@ const NavigationBar = () => {
     }
 
 
+    const startNewGame = () => {
+        dispatch(updateData({
+            guessedWords: [],
+            remainingGuesses: MAX_GUESS_ATTEMPTS,
+            correctLetters: [],
+            wordle: generateWordle(),
+            gameOver: false
+        }))
+    }
+
+
     return (
         <div className="nav">
 
@@ -43,6 +58,7 @@ const NavigationBar = () => {
                     <button
                         type={"button"}
                         id={"start"}
+                        onClick={startNewGame}
                     >start</button>
                 </div>
             ) : (

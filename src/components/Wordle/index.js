@@ -1,14 +1,21 @@
 import {useEffect, useMemo, useState} from "react";
-import {WORD_LIST, POSSIBLE_WORDS} from "@config/wordle";
+import {WORD_LIST} from "@config/wordle";
 import confetti from "canvas-confetti";
 import {KEYBOARD_LAYOUT, MAX_GUESS_ATTEMPTS, MAX_WORD_LENGTH} from "@config/general";
 import GameBoard from "@components/GameBoard";
 import NavigationBar from "@components/NavigationBar";
+import {useDispatch} from "react-redux";
+import {updateData} from "@storage/slices/gameDataSlice";
+import useWordle from "@hooks/useWordle";
+import Keyboard from "@components/Keyboard";
+import Guesses from "@components/Guesses";
 
 
 const Wordle = () => {
 
-    const TEST_WORD = null;
+    const dispatch = useDispatch();
+
+    const [generateWordle] = useWordle();
 
     const LOCAL_STORAGE_KEY = "wordiddily-streak";
 
@@ -58,14 +65,8 @@ const Wordle = () => {
         }, 900);
     }
 
-    const getWordle = () => {
-        return TEST_WORD ?? POSSIBLE_WORDS[Math.floor(Math.random() * POSSIBLE_WORDS.length)];
-    }
 
 
-    const getKeyCode = (event) => {
-        handleKeySelect(event.key.toLowerCase());
-    }
 
 
     const handleKeySelect = (selectedKey) => {
@@ -119,18 +120,8 @@ const Wordle = () => {
     };
 
 
-    const handleReset = () => {
-        setGuessedWords([]);
-        setRemainingGuesses(MAX_GUESS_ATTEMPTS);
-        setCorrectLetters([]);
-        setWordle(getWordle());
-        setGameOver(false);
-    };
-
-
-
     useEffect(() => {
-        setWordle(getWordle());
+        setWordle(generateWordle());
         const currentStreak = Number(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? 0;
         setStreak(currentStreak);
     }, []);
@@ -143,10 +134,7 @@ const Wordle = () => {
     }, [streak])
 
 
-    useEffect(() => {
-        document.addEventListener("keydown", getKeyCode);
-        return () => document.removeEventListener("keydown", getKeyCode);
-    }, [getKeyCode]);
+
 
 
     useEffect(() => {
@@ -197,6 +185,9 @@ const Wordle = () => {
 
             if (results.every(val => val === CLASS_NAMES.PLACED)) {
                 setGameOver(true);
+                dispatch(updateData({
+                    gameOver: true
+                }));
                 setStreak(streak + 1);
                 fireTheCannons();
             } else if (guessedWords.length >= MAX_GUESS_ATTEMPTS) {
@@ -219,6 +210,9 @@ const Wordle = () => {
     useEffect(() => {
         if (remainingGuesses <= 0) {
             setGameOver(true);
+            dispatch(updateData({
+                gameOver: true
+            }));
         } else if (remainingGuesses === 1 && !gameOver) {
             localStorage.setItem(LOCAL_STORAGE_KEY, "0");
         }
@@ -240,70 +234,9 @@ const Wordle = () => {
 
             <NavigationBar/>
 
-            <div className="guesses">
-                {guessedWords.map((word, index) => {
-                    word = word.split("");
-                    return (
-                        <div key={index} className={`guess`}>
-                            {[...Array(MAX_WORD_LENGTH)].map((letter, pos) => {
-                                let className = stats[index] !== undefined && [pos] !== undefined ? stats[index][pos] : "";
-                                return (
-                                    <div className={`letter flip ${className}`}
-                                         key={pos}>{word[pos] ? word[pos].toUpperCase() : ""}</div>
-                                );
-                            })}
-                        </div>
-                    );
-                })}
+            <Guesses/>
 
-                {remainingGuesses > 0 && (
-                    <>
-                        <div
-                            className={`guess ${gameOver ? "" : "current"} ${remainingGuesses === 1 ? "eek" : ""} ${errorClass}`}>
-                            {[...Array(MAX_WORD_LENGTH)].map((letter, index) => {
-                                return (
-                                    <div className={"letter"}
-                                         key={index}>{currentGuess[index] ? currentGuess[index].toUpperCase() : ""}</div>
-                                );
-                            })}
-                        </div>
-                        {[...Array(remainingGuesses - 1)].map((word, index) => {
-                            return (
-                                <div key={index} className={`guess`}>
-                                    {[...Array(MAX_WORD_LENGTH)].map((letter, index) => {
-                                        return (
-                                            <div className={"letter"} key={index}/>
-                                        );
-                                    })}
-                                </div>
-                            );
-                        })}
-                    </>
-                )}
-            </div>
-
-            <div className="keyboard">
-                {KEYBOARD_LAYOUT.map((row, index) => {
-                    return (
-                        <div key={index} className="keyboard-row">
-                            {row.map((letter) => {
-                                    const guessed = guessedLetters.includes(letter);
-                                    const correct = correctLetters.find(item => item.letter === letter) ?? {};
-                                    return (
-                                        <button
-                                            type={"button"}
-                                            key={`${letter}`}
-                                            data-key={letter}
-                                            className={`keyboard-letter ${guessed ? "used" : ""} ${correct.className}`}
-                                            onClick={() => handleKeySelect(letter)}
-                                        >{letter}</button>
-                                    );
-                                }
-                            )}
-                        </div>
-                    );
-                })}
-            </div>
+            <Keyboard/>
 
         </GameBoard>
     );

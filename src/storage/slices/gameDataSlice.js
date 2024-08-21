@@ -34,14 +34,16 @@ export const gameDataSlice = createSlice({
     initialState,
 
     reducers: {
-        clearData: () => initialState
+        updateData: (state, action) => {
+            return {...state, ...action.payload}
+        }
     }
 
 });
 
 
 export const {
-    clearData
+    updateData
 } = gameDataSlice.actions;
 
 

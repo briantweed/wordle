@@ -44,7 +44,6 @@ export const gameDataSlice = createSlice({
         updateSetup: (state, action) => {
             return {...state, ...action.payload}
         }
-
     }
 
 });

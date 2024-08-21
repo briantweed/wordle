@@ -5,6 +5,7 @@
             "@styles/*": ["styles/*"],
             "@config/*": ["src/config/*"],
             "@components/*": ["src/components/*"],
+            "@hooks/*": ["src/hooks/*"],
             "@storage/*": ["src/storage/*"]
         }
     }
