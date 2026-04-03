@@ -62,10 +62,6 @@ $fontPath: "/fonts/";
         padding: 1rem 0.5rem;
         border-bottom: 1px solid #aaa;
 
-        .cheat {
-            color: transparent;
-        }
-
         @media only screen and (min-width: 768px) {
             max-width: 1000px;
             margin: 0 auto 0.75rem;
@@ -138,16 +134,6 @@ $fontPath: "/fonts/";
                         border: 1px solid #cc2323;
                         color: #cc2323;
                         background: #ffe2e2;
-                    }
-
-                }
-
-                &.cheat {
-
-                    .letter {
-                        border: 1px solid #9a27d2;
-                        background: #7511a4;
-                        color: white;
                     }
 
                 }

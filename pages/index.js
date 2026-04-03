@@ -57,14 +57,14 @@ const Wordle = () => {
     const [theme, setTheme] = useState("");
 
 
-    const fireTheCannons = () => {
+    const fireTheCannons = (wait = 900) => {
         setTimeout(() => {
             confetti({
                 particleCount: 150,
                 spread: 100,
                 origin: {y: 0.5}
             });
-        }, 900);
+        }, wait);
     }
 
     const getWordle = () => {
@@ -108,12 +108,11 @@ const Wordle = () => {
         }
         else if (guessedWord === "mario") {
             setStreak(streak + 1);
-            setErrorClass(CLASS_NAMES.CHEAT);
+            fireTheCannons(0);
         }
         else if (guessedWord === "luigi") {
             const keepIndex = Math.floor(Math.random() * 5);
-            setCurrentGuess([...wordle.map((value, index) => index === keepIndex ? value : "")]);
-            setErrorClass(CLASS_NAMES.CHEAT);
+            setCurrentGuess([...wordle].map((value, index) => index === keepIndex ? value : "_"));
         }
         else if (!WORD_LIST.includes(guessedWord)) {
             setErrorClass(CLASS_NAMES.ERROR);
@@ -128,7 +127,10 @@ const Wordle = () => {
     const highlightSelectedKeys = () => {
         clearSelectedKeys();
         currentGuess.forEach(guess => {
-            document.querySelector(`[data-key="${guess}"]`).classList.add(CLASS_NAMES.PRESSED);
+            const key = document.querySelector(`[data-key="${guess}"]`);
+            if (key) {
+                key.classList.add(CLASS_NAMES.PRESSED);
+            }
         });
     }
 
