@@ -142,6 +142,16 @@ $fontPath: "/fonts/";
 
                 }
 
+                &.cheat {
+
+                    .letter {
+                        border: 1px solid #9a27d2;
+                        background: #7511a4;
+                        color: white;
+                    }
+
+                }
+
             }
 
             .letter {
@@ -176,11 +186,6 @@ $fontPath: "/fonts/";
 
                 &.placed {
                     background: #459b34;
-                    color: white;
-                }
-
-                &.cheat {
-                    background: #7511a4;
                     color: white;
                 }
 
