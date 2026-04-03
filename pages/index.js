@@ -110,6 +110,10 @@ const Wordle = () => {
             setStreak(streak + 1);
             setErrorClass(CLASS_NAMES.CHEAT);
         }
+        else if (guessedWord === "luigi") {
+            setCurrentGuess([...wordle.map((value, index) => index === Math.floor(Math.random() * 5) ? value : "")]);
+            setErrorClass(CLASS_NAMES.CHEAT);
+        }
         else if (!WORD_LIST.includes(guessedWord)) {
             setErrorClass(CLASS_NAMES.ERROR);
         } else {
