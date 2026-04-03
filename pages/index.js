@@ -102,7 +102,10 @@ const Wordle = () => {
 
     const handleGuessedWord = () => {
         const guessedWord = currentGuess.join("");
-        if (!WORD_LIST.includes(guessedWord)) {
+        if (guessedWord === "xxxxx") {
+            alert(wordle);
+        }
+        else if (!WORD_LIST.includes(guessedWord)) {
             setErrorClass(CLASS_NAMES.ERROR);
         } else {
             setCurrentGuess([]);
