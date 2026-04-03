@@ -104,7 +104,7 @@ const Wordle = () => {
     const handleGuessedWord = () => {
         const guessedWord = currentGuess.join("");
         if (guessedWord === "yoshi") {
-            alert(`The word is: ${wordle.toUpperCase()}`);
+            setCurrentGuess([...wordle]);
             setErrorClass(CLASS_NAMES.CHEAT);
         }
         else if (guessedWord === "mario") {
