@@ -102,8 +102,12 @@ const Wordle = () => {
 
     const handleGuessedWord = () => {
         const guessedWord = currentGuess.join("");
-        if (guessedWord === "xxxxx") {
-            alert(wordle);
+        if (guessedWord === "yoshi") {
+            alert(`The word is: ${wordle} you Dirty Cheat!`);
+        }
+        else if (guessedWord === "mario") {
+            setStreak(streak + 1);
+            alert(`Streak set to: ${streak + 1} you Dirty Cheat!`);
         }
         else if (!WORD_LIST.includes(guessedWord)) {
             setErrorClass(CLASS_NAMES.ERROR);
