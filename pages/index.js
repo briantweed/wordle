@@ -105,7 +105,6 @@ const Wordle = () => {
         const guessedWord = currentGuess.join("");
         if (guessedWord === "yoshi") {
             setCurrentGuess([...wordle]);
-            setErrorClass(CLASS_NAMES.CHEAT);
         }
         else if (guessedWord === "mario") {
             setStreak(streak + 1);
