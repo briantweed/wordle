@@ -179,6 +179,11 @@ $fontPath: "/fonts/";
                     color: white;
                 }
 
+                &.cheat {
+                    background: #7511a4;
+                    color: white;
+                }
+
                 &.flip {
                     animation: flipUp 0.75s ease forwards;
                     transform: rotateX(90deg);

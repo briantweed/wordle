@@ -28,7 +28,8 @@ const Wordle = () => {
         PRESSED: "pressed",
         PASSED: "pass",
         PLACED: "placed",
-        PRESENT: "present"
+        PRESENT: "present",
+        CHEAT: "cheat"
     }
 
     const keyboardCharacters = KEYBOARD_LAYOUT.flat();
@@ -103,11 +104,12 @@ const Wordle = () => {
     const handleGuessedWord = () => {
         const guessedWord = currentGuess.join("");
         if (guessedWord === "yoshi") {
-            alert(`The word is: ${wordle} you Dirty Cheat!`);
+            alert(`The word is: ${wordle.toUpperCase()}`);
+            setErrorClass(CLASS_NAMES.CHEAT);
         }
         else if (guessedWord === "mario") {
             setStreak(streak + 1);
-            alert(`Streak set to: ${streak + 1} you Dirty Cheat!`);
+            setErrorClass(CLASS_NAMES.CHEAT);
         }
         else if (!WORD_LIST.includes(guessedWord)) {
             setErrorClass(CLASS_NAMES.ERROR);
